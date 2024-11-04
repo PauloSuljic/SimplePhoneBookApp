@@ -1,0 +1,25 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.ide
+.vscode/
+
+# Rider files
+.idea/
+*.sln.iml
+
+# Rider project files
+.idea/
+
+# NuGet Packages
+*.nupkg
+packages/
+
+# Logs
+*.log

@@ -1,0 +1,34 @@
+@page
+@model SimplePhoneBookApp.Pages.Contacts.IndexModel
+@{
+    ViewData["Title"] = "Contacts List";
+}
+
+<h1>Contacts List</h1>
+
+<a asp-page="Create" class="btn btn-primary">Add New Contact</a>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Phone Number</th>
+        <th>Email</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var contact in Model.Contacts)
+    {
+        <tr>
+            <td>@contact.Name</td>
+            <td>@contact.PhoneNumber</td>
+            <td>@contact.Email</td>
+            <td>
+                <a asp-page="Edit" asp-route-id="@contact.Id" class="btn btn-warning">Edit</a>
+                <a asp-page="Delete" asp-route-id="@contact.Id" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
