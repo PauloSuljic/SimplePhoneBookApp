@@ -37,39 +37,10 @@ namespace SimplePhoneBookApp.Pages.Contacts
             {
                 return Page();
             }
-            
-            // Check for the temporary value
-            if (Contact.Id == 0)
-            {
-                // Handle the case where ID is temporary (not loaded correctly)
-                ModelState.AddModelError("", "The contact ID is not valid.");
-                return Page();
-            }
 
             _context.Attach(Contact).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ContactExists(Contact.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return RedirectToPage("./Index"); // Redirect to the contact list page after updating
-        }
-
-        private bool ContactExists(int id)
-        {
-            return _context.Contacts.Any(e => e.Id == id);
+            await _context.SaveChangesAsync();
+            return RedirectToPage("./Index");
         }
     }
 }

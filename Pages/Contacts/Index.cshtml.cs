@@ -2,10 +2,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using SimplePhoneBookApp.Data;
 using SimplePhoneBookApp.Models;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using SimplePhoneBookApp.Data;
-using SimplePhoneBookApp.Models;
+using Microsoft.AspNetCore.Mvc;
+
 
 namespace SimplePhoneBookApp.Pages.Contacts
 {
@@ -23,5 +21,6 @@ namespace SimplePhoneBookApp.Pages.Contacts
         {
             Contacts = await _context.Contacts.ToListAsync();
         }
+
     }
 }

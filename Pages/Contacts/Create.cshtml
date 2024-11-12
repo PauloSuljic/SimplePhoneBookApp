@@ -1,4 +1,6 @@
 @page
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using SimplePhoneBookApp.Models
 @model SimplePhoneBookApp.Pages.Contacts.CreateModel
 @{
 ViewData["Title"] = "Create Contact";
@@ -21,6 +23,17 @@ ViewData["Title"] = "Create Contact";
         <label asp-for="Contact.Email"></label>
         <input asp-for="Contact.Email" class="form-control" />
         <span asp-validation-for="Contact.Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Contact.Tag">Tag (optional)</label>
+        <select asp-for="Contact.Tag" class="form-control">
+            <option value="None">-- Select a Tag --</option>
+            @foreach (var tag in Enum.GetValues(typeof(ContactTag)).Cast<ContactTag>())
+            {
+            <option value="@tag">@tag</option>
+            }
+        </select>
+        <span asp-validation-for="Contact.Tag" class="text-danger"></span>
     </div>
     <button type="submit" class="btn btn-primary">Add Contact</button>
 </form>

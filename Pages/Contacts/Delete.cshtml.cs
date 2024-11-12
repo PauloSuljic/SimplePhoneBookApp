@@ -39,7 +39,7 @@ namespace SimplePhoneBookApp.Pages.Contacts
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index"); // Redirect to the contact list page after deletion
+            return RedirectToPage("./Index");
         }
     }
 }

@@ -26,6 +26,12 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.MapGet("/", context =>
+{
+    context.Response.Redirect("/Contacts");
+    return Task.CompletedTask;
+});
+
 app.MapRazorPages();
 
 app.Run();

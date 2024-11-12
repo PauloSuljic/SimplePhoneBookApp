@@ -22,7 +22,7 @@ namespace SimplePhoneBookApp.Pages.Contacts
 
         public void OnGet()
         {
-            // This method is empty for now; it will just display the form
+            // No data is retrieved because the user is creating a new contact, and the form is blank.
         }
 
         public async Task<IActionResult> OnPostAsync()
@@ -34,7 +34,7 @@ namespace SimplePhoneBookApp.Pages.Contacts
 
             _context.Contacts.Add(Contact);
             await _context.SaveChangesAsync();
-            return RedirectToPage("./Index"); // Redirect to the contact list page after adding
+            return RedirectToPage("./Index");
         }
     }
 }
